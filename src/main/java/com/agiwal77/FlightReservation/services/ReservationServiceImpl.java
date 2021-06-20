@@ -46,7 +46,7 @@ public class ReservationServiceImpl implements ReservationService{
         reservation.setCheckedIn(false);
         Reservation savedReservation = reservationRepository.save(reservation);
 
-        String filePath = "C:/Users/ASUS/Downloads/Java/"+savedReservation.getId()+".pdf";
+        String filePath = "/home/ec2-user/FlightReservation/FlightBookingConfirmation"+savedReservation.getId()+".pdf";
         pdfGenerator.generateItinerary(savedReservation, filePath);
         emailUtil.sendItinerary(passenger.getEmail(),filePath);
         return savedReservation;
