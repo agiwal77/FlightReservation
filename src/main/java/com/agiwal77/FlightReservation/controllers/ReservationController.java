@@ -31,7 +31,6 @@ public class ReservationController {
     public String completeReservation(ReservationRequest reservationRequest, ModelMap modelMap){
         Reservation reservation = reservationService.bookFlight(reservationRequest);
         modelMap.addAttribute("msg","Reservation created successfully and the ID is "+reservation.getId());
-
         return "reservationConfirmation";
     }
 
